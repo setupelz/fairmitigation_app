@@ -3,4 +3,4 @@
     
 Publication: https://science.org/doi/10.1126/science.adf0067
 
-Publication replication archive: https://doi.org/10.5281/zenodo.7308573
+Publication replication archive (citeable): https://doi.org/10.5281/zenodo.7308573

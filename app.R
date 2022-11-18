@@ -1,10 +1,10 @@
-# Fair Mitigation Explorer Webapp-----------------------------------------------
-# Setu Pelz, ECE, TISS, IIASA (pelz@iiasa.ac.at)
+# Fair Mitigation Explorer Webapp ----------------------------------------------
+# Setu Pelz (TISS, ECE, IIASA, pelz@iiasa.ac.at)
 #
 # Enables interactive analysis of the work presented in "Fairness considerations 
 # in Global Mitigation Investments", by Shonali Pachauri, Setu Pelz, 
 # Christoph Bertram, Silvie Kreibiehl, Narasimha D. Rao, Youba Sokona and Keywan 
-# Riahi, (forthcoming, Science)
+# Riahi. Science (2022), 10.1126/science.adf0067.
 
 # LOAD NECESSARY PACKAGES ------------------------------------------------------
 
@@ -63,21 +63,35 @@ intro_tab <- tabPanel(
   hr(),
   fluidRow(
   column(7,
-  p("Welcome to the webapp accompanying the publication 'Fairness considerations in global mitigation 
+  HTML("<p>Welcome to the webapp accompanying 'Fairness considerations in global mitigation 
   investments' by Shonali Pachauri, Setu Pelz, Christoph Bertram, Silvie Kreibiehl, 
-    Narasimha D. Rao, Youba Sokona and Keywan Riahi, (forthcoming, Science)."),
-  p("This webapp enables users to systematically explore 'fair' regional contributions to 
+    Narasimha D. Rao, Youba Sokona and Keywan Riahi. Published in Science (2022), 
+    <a href='https://science.org/doi/10.1126/science.adf0067'target = 'blank'>10.1126/science.adf0067</a>.</p>"),
+  HTML("<p>This webapp enables users to systematically explore 'fair' regional contributions to 
     near-term regional mitigation investment needs (2020-2030) derived from global 
-    cost-effective mitigation pathways assessed within the IPCC WGIII AR6."),
-  HTML("<p>Users can select from a range of indicators reflecting different 
+    cost-effective mitigation pathways assessed by Working Group III within the 
+    <a href='https://www.ipcc.ch/report/sixth-assessment-report-working-group-3/', 
+    target = 'blank'>IPCC AR6</a>.</p>"),
+  p("Users can select from a range of indicators reflecting different 
     considerations of equity and assign these weights. The tool then determines 
     corresponding 'fair-share' regional contributions to the regional 'cost-effective' 
-    investment needs defined within Figure TS25 in the Technical Summary of the <a href='https://www.ipcc.ch/report/sixth-assessment-report-working-group-3/', target = 'blank'>IPCC WGIII AR6 report</a>.</p>"),
-  p("Users should select considerations and set desired weights starting from top to bottom such that these sum to 100 (or as near as possible). 
-  Weights are relative such that user inputs are proportionally transformed into weights between 0-100, summing to 100 across all three considerations."),
-  p("Users should also select between the lower- and upper-bounds of near-term global climate mitigation investment needs as defined within Figure TS25 in the Technical Summary of the IPCC WGIII AR6 report."),
-  p("Please note that regions are defined as per the IPCC WGIII Report as follows: \nSAP - South-East Asia and developing Pacific, \nMEA - Middle East, \nAPD - Asia-Pacific Developed, \nAFR - Africa, \nSAS - Southern Asia, \nLAC - Latin America and Caribbean, \nEEA - Eastern Europe and West-Central Asia, \nEAS - Eastern Asia, \nEUR - Europe, \nNAM - North America. \nPlease refer to the manuscript SI for further country-level detail."),
-  p("To continue, navigate to the 'Tool' tab and click 'Calculate' after setting the desired parameters. Please note that the webapp is not intended to be viewed on tablets and my not function correctly.")
+    investment needs defined within Figure TS.25 in the Technical Summary of the WGIII contribtion to the IPCC AR6."),
+  p("Users should select considerations and set desired weights starting from top 
+  to bottom such that these sum to 100 (or as near as possible). 
+  Weights are relative such that user inputs are proportionally transformed into 
+    weights between 0-100, summing to 100 across all three considerations."),
+  p("Users should also select between the lower- and upper-bounds of near-term 
+    global climate mitigation investment needs as defined within Figure TS.25 in 
+    the Technical Summary of the IPCC WGIII AR6 report."),
+  p("Please note that regions are defined as per the IPCC WGIII Report as follows: 
+    \nSAP - South-East Asia and developing Pacific, \nMEA - Middle East, 
+    \nAPD - Asia-Pacific Developed, \nAFR - Africa, \nSAS - Southern Asia, 
+    \nLAC - Latin America and Caribbean, \nEEA - Eastern Europe and West-Central Asia, 
+    \nEAS - Eastern Asia, \nEUR - Europe, \nNAM - North America. \nPlease refer 
+    to the manuscript SI for further country-level detail."),
+  p("To continue, navigate to the 'Tool' tab and click 'Calculate' after setting 
+    the desired parameters. Please note that the webapp is not intended to be 
+    viewed on tablets and may not function correctly.")
   ),
   
   column(5,
@@ -93,15 +107,38 @@ publication_tab <- tabPanel(
   h3("Fairness considerations in global mitigation investments"),
   hr(),
   column(12, fluidRow(
-    HTML("<p>Replication archive: <a href='https://doi.org/10.5281/zenodo.7308573'><img src='https://zenodo.org/badge/DOI/10.5281/zenodo.7308573.svg' alt='DOI'></a></p>"),
+    HTML("<p>Publication: <a href='https://science.org/doi/10.1126/science.adf0067'target = 'blank'>https://science.org/doi/10.1126/science.adf0067</a></p>"),
+    HTML("<p>Replication archive: <a href='https://doi.org/10.5281/zenodo.7308573'target = 'blank'>https://doi.org/10.5281/zenodo.7308573</a></p>"),
     p("Authors: Shonali Pachauri¹, Setu Pelz¹, Christoph Bertram², Silvie Kreibiehl³, 
     Narasimha D. Rao¹,⁴, Youba Sokona⁵,⁶,  Keywan Riahi¹ "),
     p("Affiliations: ¹International Institute for Applied Systems Analysis, 
     ²Potsdam Institute for Climate Impact Research, ³Germanwatch e.V., ⁴Yale School of the Environment, 
     ⁵South Centre, ⁶University College London"),
-    p("We will provide an abstract and link to the publication and supplementary materials at time of publication."))
+    p("We will provide an abstract at time of publication."))
   )
 )
+
+# Related tools tab
+related_tab <- tabPanel(
+  title = "Other tools",
+  h3("Other climate equity tools"),
+  hr(),
+  column(6, fluidRow(
+    p("A vast climate equity literature has developed to inform discussions of 
+      carbon budget sharing and equitable emissions reductions, applying several 
+      different equity approaches and principles. We provide here a list 
+      of other available climate equity tools, noting that these efforts are 
+      generally distinct from our work on fairness in near-term mitigation 
+      investment finance contributions. This list does not indicate endorsement nor
+      comprehensiveness."),
+    tags$ul(
+      tags$li(a("https://calculator.climateequityreference.org/", href="https://calculator.climateequityreference.org/", target="_blank")), 
+      tags$li(a("https://climateequitymonitor.in", href="https://climateequitymonitor.in", target="_blank")), 
+      tags$li(a("https://climateactiontracker.org/countries/rating-system/", href="https://climateactiontracker.org/countries/rating-system/", target="_blank")),
+      tags$li(a("https://paris-equity-check.org/multi-equity-map.html", href="https://paris-equity-check.org/multi-equity-map.html", target="_blank")), 
+      tags$li(a("http://www.ccalc.ethz.ch", href="http://www.ccalc.ethz.ch", target="_blank"))
+    )))
+  )
 
 # Webapp tab
 tool_tab <- tabPanel(
@@ -151,7 +188,7 @@ tool_tab <- tabPanel(
         label = 
           span("Capability",
                div(style = "display:inline-block; font-size:16px",
-                   title = "Capability: selecting higher values here indicates that you believe  wealthier and thus more capable regions should carry a proportionally larger share to finance global mitigation. We quantify this consideration using per-capita GDP and per-capita capital stock. For both of these indicators we take the value for the year 2019, the year before the decade of analysis (2020-2030)",
+                   title = "Capability: selecting higher values here indicates that you believe  wealthier and thus more capable regions should carry a proportionally larger share of contributions to finance global mitigation. We quantify this consideration using per-capita GDP and per-capita capital stock. For both of these indicators we take the value for the year 2019, the year before the decade of analysis (2020-2030)",
                    icon("info-circle"))),
         choices = list(
           `C1 - GDP per capita (2019)` = "GDP per Capita (2019)",
@@ -184,7 +221,7 @@ tool_tab <- tabPanel(
         inputId = "highlow",
         label = 
           span(
-            "AR6 TS25 cost-effective investment need bounds",
+            "AR6 TS.25 cost-effective investment need bounds",
             div(style = "display:inline-block; width = 20px",
                 title = 
                 "Select from the lower- and upper-bound of the estimated regional cost-effective annual mitigation investment needs in the decade 2020-2030, provided in Figure 25 of the IPCC WGIII AR6 Technical Summary.",
@@ -213,7 +250,7 @@ tool_tab <- tabPanel(
                    column(8, plotOutput("fig_r10cont", height = "70%")),
                    column(4, plotOutput("fig_r10cont_shares")),
                    hr(),
-                   helpText("Regional cost-effective investment needs and 'fair-share' regional contributions 2020-2030 as a share of the global cost-effective mitigation investment needs. IPCC R10 defined as follows: SAP - South-East Asia and developing Pacific, MEA - Middle East, APD - Asia-Pacific Developed, AFR - Africa, SAS - Southern Asia, LAC - Latin America and Caribbean, EEA - Eastern Europe and West-Central Asia, EAS - Eastern Asia, EUR - Europe, NAM - North America."),
+                   helpText("Regional cost-effective investment needs and 'fair-share' regional contributions 2020-2030 in Billion USD. IPCC R10 defined as follows: SAP - South-East Asia and developing Pacific, MEA - Middle East, APD - Asia-Pacific Developed, AFR - Africa, SAS - Southern Asia, LAC - Latin America and Caribbean, EEA - Eastern Europe and West-Central Asia, EAS - Eastern Asia, EUR - Europe, NAM - North America."),
                    hr(),
                    h4("Regional cost-effective investment needs and 'fair-share' contributions 2020-2030 in Billion USD"),
                    DTOutput("tbl_r10cont"),
@@ -256,7 +293,7 @@ ui <-
   navbarPage("Fair Mitigation Finance Explorer", theme = shinytheme("lumen"),
   id = "tabs", # must give id here to add/remove tabs in server
   collapsible = TRUE,
-  intro_tab, tool_tab, publication_tab
+  intro_tab, tool_tab, publication_tab, related_tab
 )
 
 # APP SERVER -------------------------------------------------------------------
@@ -403,7 +440,7 @@ server <- function(input, output, session) {
                  data = . %>% filter(name == "Within-region contributions to mitigation needs")) +
       geom_col(aes(y = Recent), fill = "darkgrey", show.legend = F, width = 0.6,
                data = . %>% filter(name == "Within-region contributions to mitigation needs")) +
-      scale_y_continuous(breaks = scales::pretty_breaks(), limits = c(0,ifelse(input$highlow == "CE_low", 0.04,0.08)), labels = scales::percent_format(), 
+      scale_y_continuous(breaks = scales::pretty_breaks(), limits = c(0,ifelse(input$highlow == "CE_low", 0.04,0.08)), labels = scales::percent_format(accuracy = 1), 
                          position = "left") +
       scale_fill_manual(values = c("darkgrey", "#DDAA33", "#BB5566","#4477AA"), drop = F) +
       labs(x = NULL, y = "Share of regional GDP (2019)",
